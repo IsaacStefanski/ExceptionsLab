@@ -43,7 +43,7 @@ public class Challenge1 {
     public final String extractLastName(String fullName) throws IllegalArgumentException {
         String lastName = null;
         
-        if(fullName.isEmpty() || fullName == null || fullName.length() == 0){
+        if(fullName.isEmpty() || fullName == null || fullName.length() == 0 || !fullName.contains(" ")){
             throw new IllegalArgumentException("Sorry, you have entered an invalid full name");
         }
         String[] splitName = fullName.split("\\s+");

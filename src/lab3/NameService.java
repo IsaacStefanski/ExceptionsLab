@@ -18,12 +18,15 @@ public class NameService {
      * @throws YourCustomExceptionName if fullName is null or empty or has
      * fewer than two parts
      */
-    public String extractLastName(String fullName) {
+    public String extractLastName(String fullName) throws IllegalNameException {
         String lastName = null;
         
-        // put your code here
+        if(fullName.isEmpty() || fullName == null || fullName.length() == 0 || !fullName.contains(" ")){
+            throw new IllegalNameException("Sorry, you have entered an invalid full name");
+        }
+        String[] splitName = fullName.split("\\s+");
+        lastName = splitName[1];
         
         return lastName;
-    }
-    
+    }    
 }

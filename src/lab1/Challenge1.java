@@ -29,7 +29,7 @@ public class Challenge1 {
         String lastName = "";
         try {
             lastName = app.extractLastName(fullName);
-            String msg = "Your last name is: " + lastName;
+            String msg = "Your last name appears to be: " + lastName;
             JOptionPane.showMessageDialog(null, msg);
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -46,7 +46,7 @@ public class Challenge1 {
         if(fullName.isEmpty() || fullName == null || fullName.length() == 0 || !fullName.contains(" ")){
             throw new IllegalArgumentException("Sorry, you have entered an invalid full name");
         }
-        String[] splitName = fullName.split("\\s+");
+        String[] splitName = fullName.split("\\s+"); //split at each space
         if(splitName.length == 1 || splitName.length ==2){
             throw new IllegalArgumentException("Sorry, you have an invalid last name");
         }

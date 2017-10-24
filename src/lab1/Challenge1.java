@@ -47,9 +47,6 @@ public class Challenge1 {
             throw new IllegalArgumentException("Sorry, you have entered an invalid full name");
         }
         String[] splitName = fullName.split("\\s+"); //split at each space
-        if(splitName.length == 1 || splitName.length ==2){
-            throw new IllegalArgumentException("Sorry, you have an invalid last name");
-        }
         lastName = splitName[lastNameIndex];
         
         return lastName;

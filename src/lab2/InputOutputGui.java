@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 public class InputOutputGui {
     private NameService nameService;
     private static String inputPrompt = "Enter full name:";
+    private static String outputLastNameMsg = "Your last name appears to be: ";
 
     public InputOutputGui() {
         nameService = new NameService();
@@ -19,19 +20,21 @@ public class InputOutputGui {
     public final void startConversation() {        
         String fullName = JOptionPane.showInputDialog(inputPrompt);
         String lastName = "";
+        
         try{
             lastName = nameService.extractLastName(fullName);  
-            String msg = "Your last name is: " + lastName;
+            String msg = outputLastNameMsg + lastName;
             JOptionPane.showMessageDialog(null, msg);
         } catch (IllegalArgumentException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
+    
     public final static String getInputPrompt() {
         return inputPrompt;
     }
 
-    public final static void setInputPrompt(String inputPrompt) {
+    public final static void setInputPrompt(String inputPrompt) throws IllegalArgumentException {
         if(inputPrompt.isEmpty() || inputPrompt == null || inputPrompt.length() == 0){
             throw new IllegalArgumentException("Sorry, you have entered an invalid prompt");
         }

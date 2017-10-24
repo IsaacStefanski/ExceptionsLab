@@ -82,7 +82,10 @@ public class Employee {
      * Mutates the lastName.
      * @param lastName - cannot be null or empty
      */
-    public final void setLastName(String lastName) {
+    public final void setLastName(String lastName) throws IllegalArgumentException {
+        if(lastName == null || lastName.isEmpty()) {
+            throw new IllegalArgumentException("Sorry, last name is mandatory. Please try again");
+        }
         this.lastName = lastName;
     }
 
@@ -90,7 +93,10 @@ public class Employee {
         return ssn;
     }
 
-    public final void setSsn(String ssn) {
+    public final void setSsn(String ssn) throws IllegalArgumentException{
+        if(ssn == null || ssn.isEmpty()) {
+            throw new IllegalArgumentException("Sorry, ssn is mandatory. Please try again");
+        }
         this.ssn = ssn;
     }
 

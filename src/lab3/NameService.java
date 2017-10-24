@@ -18,15 +18,22 @@ public class NameService {
      * @throws YourCustomExceptionName if fullName is null or empty or has
      * fewer than two parts
      */
-    public String extractLastName(String fullName) throws IllegalNameException {
+    public String extractLastName(String fullName) throws IllegalArgumentException {
         String lastName = null;
         
         if(fullName.isEmpty() || fullName == null || fullName.length() == 0 || !fullName.contains(" ")){
-            throw new IllegalNameException("Sorry, you have entered an invalid full name");
+            throw new IllegalArgumentException("Sorry, you have entered an invalid full name");
         }
-        String[] splitName = fullName.split("\\s+");
-        lastName = splitName[1];
+        String[] splitName = fullName.split("\\s+"); //split at each space
+        String last = splitName[splitName.length-1];
+        
+        if(last.equals("Jr.") || last.equals("Sr.") || last.equals("I") || last.equals("II") ||
+                last.equals("III") || last.equals("IV") || last.equals("V") || last.equals("VI")){
+            last = splitName[splitName.length-2];
+        }
+        
+        lastName = last;
         
         return lastName;
-    }    
+    }   
 }

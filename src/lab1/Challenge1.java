@@ -47,6 +47,9 @@ public class Challenge1 {
             throw new IllegalArgumentException("Sorry, you have entered an invalid full name");
         }
         String[] splitName = fullName.split("\\s+");
+        if(splitName.length == 1 || splitName.length ==2){
+            throw new IllegalArgumentException("Sorry, you have an invalid last name");
+        }
         lastName = splitName[lastNameIndex];
         
         return lastName;
@@ -56,7 +59,7 @@ public class Challenge1 {
         return lastNameIndex;
     }
 
-    public final void setLastNameIndex(int lastNameIndex) {
+    public final void setLastNameIndex(int lastNameIndex) throws IllegalArgumentException {
         if(lastNameIndex < 0){
             throw new IllegalArgumentException("Sorry, you have entered an invalid last name index");
         }
@@ -67,7 +70,7 @@ public class Challenge1 {
         return inputPrompt;
     }
 
-    public final static void setInputPrompt(String inputPrompt) {
+    public final static void setInputPrompt(String inputPrompt) throws IllegalArgumentException {
         if(inputPrompt.isEmpty() || inputPrompt == null || inputPrompt.length() == 0){
             throw new IllegalArgumentException("Sorry, you have entered an invalid prompt");
         }

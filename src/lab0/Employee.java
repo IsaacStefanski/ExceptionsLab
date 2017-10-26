@@ -46,6 +46,16 @@ public class Employee {
         setSsn(ssn);
         setDaysVacation(daysVacation);
     }
+    
+    public final boolean isFirstNameLengthEven(){
+        boolean result = false;
+        
+        if(firstName.length() % 2 == 0){
+            result = true;
+        }
+        
+        return result;
+    }
 
     public final int getDaysVacation() {
         return daysVacation;
@@ -100,7 +110,7 @@ public class Employee {
         this.ssn = ssn;
     }
 
-    public String toString() {
+    public final String toString() {
         return firstName + " " + lastName;
     }
 }
